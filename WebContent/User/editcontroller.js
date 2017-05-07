@@ -1,0 +1,21 @@
+app.controller('EditController',function($scope,$location,UserService){
+	$scope.user=UserService.getUser()
+	.then(function(response){
+		$scope.user=response.data
+		console.log(response.data);
+	},function(response){
+		console.log(response.status)
+		$location.path('/Login')
+	})
+	
+	$scope.updateUser=function(){
+		UserService.updateUser($scope.user)
+	    .then(function(response){
+	    	console.log(response.status)
+	    	$location.path('/Home')
+	    },function(response){
+	    	console.log(response.status)
+	    	$location.path('/edituser')
+	    })
+	}
+})

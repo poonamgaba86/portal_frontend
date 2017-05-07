@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="table-responsive" ng-show="currentUser.role=='Admin'">
+List of Blog Posts waiting for approval
+<table class="table">
+<tr><th>Recent Posts</th></tr>
+<tr ng-repeat="blogPost in postsForApproval | orderBy:'time':true">
+
+<td><a href="#getBlogForApproval/{{blogPost.blogPost_id}}">{{blogPost.title}}</a></td>
+<td>Created By: {{blogPost.createdBy.name}}</td>
+<td>Created On: {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
+</tr>
+
+</table>
+</div>
+
+Search By Title:
+<input type="text" ng-model="search.title">
+Search By Author
+<input type="text" ng-model="search.createdBy.user_id">
+
+<table class="table">
+<tr><th>Recent Posts<th></tr>
+
+<tr ng-repeat="blogPost in blogPosts | orderBy:'time':true | filter:search">
+<!-- BootStrap table -->
+<!-- #/getBlogDetail/1 -->
+<td><a href="#getBlogDetail/{{blogPost.blogPost_id}}">{{blogPost.title}}</a></td>
+<td>Created By : {{blogPost.createdBy.name}}</td>
+<td>Created On: {{blogPost.createdOn | date:'MM/dd/yyyy HH:mm'}}</td>
+
+</tr>
+</table>
+
+
+
+</body>
+</html>

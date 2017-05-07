@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+all jobs are here
+<table class="col-md-6">
+<tr ng-repeat="job in jobs">
+	<td ng-if="currentUser.role=='Student' "
+	
+	ng-show="job.active"><a href="" ng-click=jobDetail(job.id)>{{job.jobTitle}}</a></td>
+<td ng-if="currentUser.role=='Admin'"><a href="" ng-click=jobDetail(job.id)>{{job.jobTitle}}</a></td>
+</tr>
+
+</table>
+<div ng-show="showJobDetails">
+<b>Description</b> : {{job.jobDescription}}<br>
+<b>Skills Required</b> :{{job.skillsRequired}}<br>
+<b>location</b>:{{job.location}}<br>
+<b>Years Of Experience</b>{{job.yrsOfExp}}<br>
+<b>Company</b>{{job.company}}<br>
+<b>Posted On</b>{{job.postedOn | date:'yyyy:MM:dd'}}<br>
+<b>Skills Required</b>{{job.skillsRequired}}<br>
+<b ng-show="currentUser.role=='Admin'">Active</b>{{job.active}}<br>
+</div>
+<a href="#/Home">Home Page</a>
+
+</body>
+</html>

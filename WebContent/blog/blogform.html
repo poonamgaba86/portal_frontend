@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form>
+<table>
+<tr>
+<td>Title of the blog post</td>
+<td><input type="text" ng-model="blog.title"></td>
+</tr>
+
+<tr>
+<td>Content</td>
+<td><textarea rows="10" cols="50" ng-model="blog.body"></textarea>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" ng-click="saveBlogPost()" value="Add Post"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
